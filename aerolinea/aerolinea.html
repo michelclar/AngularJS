@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Aerolineas Manizales</title>
+	<script src="js/angular.min.js" type="text/javascript"></script>
+	<script src="js/scriptAerolineas.js" type="text/javascript"></script>
+</head>
+<body ng-app="miaplicacion" ng-controller="micontrol">
+<h1>AEROLINEA MANIZALES</h1>
+<h2>Reserva Tiquetes</h2>
+<form>
+<table border="1">
+	<tr>
+		<td>Ciudad de Origen</td>
+		<td>
+			<select ng-model="origen">
+				<option ng-repeat="co in ciudad">{{co.nombre}}</option>				
+			</select>	
+		</td>
+	</tr>
+	<tr>
+		<td>Ciudad de Destino</td>
+		<td>
+			<select ng-model="destino">
+				<option ng-repeat="cd in ciudad">{{cd.nombre}}</option>
+			</select>	
+		</td>
+	</tr>
+	<tr>
+		<td>Clase</td>
+		<td>
+			<input type="radio" name="clase" value="turista" ng-model="clase"> Turista<br>
+			<input type="radio" name="clase" value="primera" ng-model="clase"> Primera Clase<br>
+			<input type="radio" name="clase" value="ejecutiva" ng-model="clase"> Ejecutiva<br>
+		</td>
+	</tr>
+	<tr>
+		<td>servicios</td>
+		<td>
+			<input type="checkbox" name="servicio" ng-model="alimentacion"> Alimentacion($25.000) <br>
+			<input type="checkbox" name="servicio" ng-model="internet"> Internet($5.000) <br>
+			<input type="checkbox" name="servicio" ng-model="maletero"> Maletero($4.000) <br>
+		</td>
+	</tr>
+	<tr>
+		<td>Nombre Completo</td>
+		<td><input type="text" ng-model="nombre"></td>
+	</tr>
+	<tr>
+		<td>Edad</td>
+		<td><input type="text" ng-model="edad"></td>
+	</tr>
+	<tr>
+		<td><input type="button" value="Enviar" ng-click="reservar()"> 
+		<input type="reset" value="Restablecer"></td>
+	</tr>
+
+</table>
+</form>
+
+<br>
+<br>
+  
+<table border="1">
+	<tr>
+		<th>Id</th>
+		<th>Nombre</th>
+		<th>Origen</th>
+		<th>Destino</th>
+		<th>Clase</th>
+		<th>Valor Vuelo($)</th>
+		<th>Descuento($)</th>
+		<th>Servicios($)</th>
+		<th>Total($)</th>
+	</tr>
+		<tr ng-repeat="res in r2">
+		<td>{{res.id}}</td>
+		<td>{{res.nombre}}</td>
+		<td>{{res.origen}}</td>
+		<td>{{res.destino}}</td>
+		<td>{{res.clase}}</td>
+		<td>{{res.totalti}}</td>
+		<td>{{res.descuento}}</td>
+		<td>{{res.servicios}}</td>
+		<td>{{res.totalpagar}}</td>
+</table>
+
+</body>
+</html>
